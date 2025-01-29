@@ -1,0 +1,58 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.search-container {
+  display: flex;
+  align-items: center; /* Garante o alinhamento vertical */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 25px 0 0 25px;
+  padding: 10px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.btn {
+  border: 1px solid #ccc;
+  border-radius: 0 25px 25px 0;
+  background-color: #289cac;
+  padding: 0 20px;
+  cursor: pointer;
+  height: 40px; /* Mesma altura do input */
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* Centraliza o texto verticalmente */
+  justify-content: center; /* Centraliza o texto horizontalmente */
+  box-sizing: border-box;
+}
+
+/* App.css */
+.App.dark {
+  background-color: linear-gradient(to right, #0f0c29, #302b63, #242424);
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.App.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
