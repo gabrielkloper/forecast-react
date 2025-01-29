@@ -43,7 +43,7 @@ input {
 
 /* App.css */
 .App.dark {
-  background-color: linear-gradient(to right, #0f0c29, #302b63, #242424);
+  background-color: linear-gradient(to right, #050505, #1e1e20, #242424);
   color: rgba(255, 255, 255, 0.87);
 }
 

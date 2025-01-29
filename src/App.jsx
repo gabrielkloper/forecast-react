@@ -1,37 +1,19 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import axios from 'axios'
 
 
 import './App.css'
 import WeatherInfo from './components/WeatherInfo/WeatherInfo'
 import WeatherInfoFiveDays from './components/WeatherInfoFiveDays/WeatherInfoFiveDays'
+import { ThemeContext } from './components/ThemeContext/ThemeContext'
 
 function App() {
   const [error, setError] = useState('')
-  const [theme, setTheme] = useState('dark')
   const [weather, setWeather] = useState()
   const [fivedays, setFivedays] = useState()
   const cityRef = useRef()
 
-  useEffect(() => {
-    const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)');
-    const theme = prefersLightScheme.matches ? 'light' : 'dark';
-    setTheme(theme);
-    document.body.classList.add(theme);
-
-    const handleChange = (e) => {
-        const newTheme = e.matches ? 'light' : 'dark';
-        setTheme(newTheme);
-        document.body.classList.remove('light', 'dark');
-        document.body.classList.add(newTheme);
-    };
-
-    prefersLightScheme.addEventListener('change', handleChange);
-
-    return () => {
-        prefersLightScheme.removeEventListener('change', handleChange);
-    };
-}, []);
+  const {theme, setTheme} = useContext(ThemeContext);
  
 
   async function searchCity() {
@@ -56,15 +38,10 @@ function App() {
   }
 
   return (
-    <div className={`App ${theme}`}>
-     <button onClick={() => {
-                const newTheme = theme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
-                document.body.classList.remove('light', 'dark');
-                document.body.classList.add(newTheme);
-            }}>
+    <div className={`App`}>
+     <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="toggle-theme">
                 Toggle Theme
-            </button>
+     </button>
     <div className="container">
       <h1>Forecast Weather</h1>
       <div className="search-container">
